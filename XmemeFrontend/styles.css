@@ -1,0 +1,23 @@
+.form-style {
+    margin: 25px;
+}
+
+.input-style {
+    width : 50%;
+}
+
+
+
+#submit {
+    margin: 25px;
+}
+
+#memes {
+    margin: 10px;
+    display: flex;  
+    flex-wrap: wrap;
+}
+
+.meme-card {
+    margin: 5px;
+}
