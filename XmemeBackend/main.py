@@ -1,13 +1,10 @@
 from typing import List
 from fastapi import FastAPI, status, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from database import Datamodel
 from models import Meme, MemeIn, Body
 import os
 import urllib
-
-
-
+from database import Datamodel
 
 dataModel = Datamodel()
 database = dataModel.get_database()
@@ -66,12 +63,14 @@ async def read_meme(meme_id: int, body : Body):
     result = await database.execute(query)
     if(result==0): 
         raise HTTPException(status_code=404, detail="Item not found")
-    return {"message" : "updated successfully"}
+    query = memes.select().where(memes.c.id == meme_id)
+    result = await database.fetch_one(query)
+    return result
 
 @app.delete("/memes/{meme_id}",  status_code = status.HTTP_200_OK)
 async def read_meme(meme_id: int):
     query = memes.delete().where(memes.c.id == meme_id)
     result = await database.execute(query)
-    if(result==None): 
+    if(result==0): 
         raise HTTPException(status_code=404, detail="Meme not found")
     return {"message" : "deleted successfully"}

@@ -6,8 +6,6 @@
     width : 50%;
 }
 
-
-
 #submit {
     margin: 25px;
 }
@@ -20,4 +18,25 @@
 
 .meme-card {
     margin: 5px;
+}
+
+#pop_up{
+    display: none;
+    height: 250px;
+    width: 300px;
+    position: fixed;
+    background-color: gray;
+    left: 45%;
+    top: 15%;
+    transform: translate(-50%, 25%);
+    border: 3px solid black;
+    z-index: 9;
+}
+
+#update {
+    margin-left: 6px;
+}
+
+.form-group {
+    margin: 10px;
 }
