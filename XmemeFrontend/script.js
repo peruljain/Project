@@ -6,18 +6,18 @@ async function getReponse() {
 }
 
 // for post meme
-async function postMeme(meme) {
-      let url = 'https://xmeme-backend.herokuapp.com/memes/?name='+meme.name+'&url='+meme.url+'&caption='+meme.caption
-      let response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-      });
-      
-      let result = await response.json();
-      return result;
-      
+async function postMeme(meme) { 
+  let response = await fetch('https://xmeme-backend.herokuapp.com/memes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body : JSON.stringify(meme)
+  });
+  
+  let result = await response.json();
+  return result;
+  
 }
 
 // get patch response
@@ -96,7 +96,7 @@ function update() {
     }
     let result = getUpdateResponse(meme_id, body)
     result.then((res)=>{
-        document.getElementById(meme_id).parentElement.parentElement.parentElement.innerHTML = `<div class="card meme-card" style="width: 18rem;">
+        document.getElementById(meme_id).parentElement.parentElement.innerHTML = `<div class="card meme-card" style="width: 18rem;">
         <img src=${res.url} class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">${res.name}</h5>

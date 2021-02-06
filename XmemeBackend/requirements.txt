@@ -13,4 +13,5 @@ starlette==0.13.6
 typing-extensions==3.7.4.3
 uvicorn==0.13.3
 websockets==8.1
+validators==0.18.2
 # uvloop==0.14.0
