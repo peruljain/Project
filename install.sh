@@ -1,3 +1,3 @@
 cwd=$(pwd)
-cd $cwd/CrioXmeme/XmemeBackend
+cd $cwd/XmemeBackend
 pip install -r requirements.txt

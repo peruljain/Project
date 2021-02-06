@@ -1,3 +1,3 @@
 cwd=$(pwd)
-cd $cwd/CrioXmeme/XmemeBackend
+cd $cwd/XmemeBackend
 uvicorn main:app --port 8081
